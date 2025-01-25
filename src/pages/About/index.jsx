@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Arrowbtn, About1, About2, About3 } from '../../Assets';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const About = [
   { id: 1, img: About1 },
@@ -10,15 +12,19 @@ const About = [
 ];
 
 const AboutPage = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: false }); // Initialize AOS and enable re-triggering on scroll
+  }, []);
+
   return (
-    <div className="min-h-screen mt-24  ">
+    <div className="min-h-screen mt-24">
       <div className="px-8 max-w-7xl mx-auto">
         <div className="mb-4">
           <p className="text-blue-600 text-sm uppercase tracking-wide">ABOUT US</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div>
+          <div data-aos="fade-up"> {/* Fade up animation */}
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               Cool
               <br />
@@ -26,7 +32,7 @@ const AboutPage = () => {
             </h1>
           </div>
 
-          <div className="relative">
+          <div className="relative" data-aos="fade-up">
             <p className="text-gray-600 text-[18px] leading-relaxed mb-8">
               Founded in the Emirate of Abu Dhabi in 2012, Cool Technologies have emerged to
               be one of the leading suppliers of industrial cooling equipment in the UAE for
@@ -35,15 +41,14 @@ const AboutPage = () => {
           </div>
         </div>
 
-        <div className="flex justify-end mb-8">
-        <button className="group relative">
-  <img 
-    src={Arrowbtn} 
-    alt="arrow button" 
-    className="transition-transform duration-300 transform group-hover:rotate-90"
-  />
-</button>
-
+        <div className="flex justify-end mb-8" data-aos="fade-up">
+          <button className="group relative">
+            <img
+              src={Arrowbtn}
+              alt="arrow button"
+              className="transition-transform duration-300 transform group-hover:rotate-90"
+            />
+          </button>
         </div>
       </div>
 
@@ -59,6 +64,7 @@ const AboutPage = () => {
             <div
               key={item.id}
               className="min-w-[300px] flex-shrink-0 p-4 rounded-lg shadow-lg"
+              data-aos="flip-left" 
             >
               <img
                 src={item.img}
@@ -72,6 +78,7 @@ const AboutPage = () => {
             <div
               key={`duplicate-${item.id}`}
               className="min-w-[300px] flex-shrink-0 p-4 rounded-lg shadow-lg"
+              data-aos="flip-left"
             >
               <img
                 src={item.img}
