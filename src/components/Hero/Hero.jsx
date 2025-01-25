@@ -9,8 +9,9 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-24">
-      <div className="p-5 max-w-2xl mx-auto text-center sm:text-left" data-aos="fade-up">
+    <div className="container mx-auto px-4  sm:px-6 md:px-12 lg:px-24">
+      <div  className='w-full flex  justify-start items-start '>
+      <div className="p-5 max-w-2xl  flex flex-col  sm:text-left" data-aos="fade-up">
         {/* Adjusted title font sizes */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 text-gray-900 font-bold leading-tight">
           Your Trusted Partner In Cooling Solution
@@ -43,7 +44,7 @@ const Hero = () => {
           </button>
         </div>
       </div>
-
+      </div>
       {/* AC Image */}
       <div className="flex justify-center mt-10" data-aos="fade-up">
         <img
