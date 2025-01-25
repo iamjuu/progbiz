@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Arrow } from "../../Assets";
+import { Arrow, Logo} from "../../Assets";
+import { MoveUpRight } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,12 +11,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="shadow-md">
+    <nav >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo Section */}
         <div className="flex items-center">
-          <span className="text-2xl font-bold text-blue-500">COOL</span>
-          <span className="text-sm ml-2 text-gray-600">TECHNOLOGIES</span>
+          <img  className='w-[120px]' src={Logo} alt="" />
+          {/* <span className="text-2xl font-bold text-blue-500">COOL</span>
+          <span className="text-sm ml-2 text-gray-600">TECHNOLOGIES</span> */}
         </div>
 
         {/* Desktop Menu */}
@@ -41,12 +43,13 @@ const Navbar = () => {
 
           {/* LET'S TALK Button */}
           <button
-            style={{ fontSize: "14px" }}
-            className="hidden lg:flex border p-2 items-center justify-center gap-2 border-black rounded-full"
-          >
-            LET'S TALK
-            <img style={{ width: "14px" }} src={Arrow} alt="arrow" />
-          </button>
+  style={{ fontSize: "14px" }}
+  className="hidden lg:flex items-center justify-center border p-2 gap-2 rounded-full transition-colors duration-200 hover:bg-blue-500 hover:text-white"
+>
+  LET'S TALK
+  <MoveUpRight size={18} className="transition-colors duration-200" />
+</button>
+
         </div>
 
         {/* Mobile Menu Button */}
