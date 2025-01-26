@@ -1,59 +1,56 @@
-import React, { useEffect } from 'react';
-import { Logo1, Logo2, Logo3, Logo4, Logo5, Logo6, Logo7 } from '../../Assets';
+import React, { useEffect } from "react";
+import { Logo1, Logo2, Logo3, Logo4, Logo5, Logo6, Logo7 } from "../../Assets";
 import { MoveRight } from "lucide-react";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Make sure to import the AOS styles
+import "aos/dist/aos.css";
 
 const ClientLogos = () => {
   const logos = [
-    { name: 'General', src: Logo1 },
-    { name: 'Midea', src: Logo2 },
-    { name: 'Akai', src: Logo3 },
-    { name: 'Nikai', src: Logo4 },
-    { name: 'Bompani', src: Logo5 },
-    { name: 'Super General', src: Logo6 },
-    { name: 'Siemens', src: Logo7 },
-    { name: 'Whirlpool', src: Logo1 },
+    { name: "General", src: Logo1 },
+    { name: "Midea", src: Logo2 },
+    { name: "Akai", src: Logo3 },
+    { name: "Nikai", src: Logo4 },
+    { name: "Bompani", src: Logo5 },
+    { name: "Super General", src: Logo6 },
+    { name: "Siemens", src: Logo7 },
+    { name: "Whirlpool", src: Logo1 },
   ];
 
   const getBorderClass = (index) => {
     switch (index) {
       case 0:
-        return 'border-t-0 border-l-0'; // Hide top and left border
+        return "border-t-0 border-l-0";
       case 1:
-        return 'border-t-0'; // Hide top border
+        return "border-t-0";
       case 2:
-        return 'border-t-0'; // Hide top border
+        return "border-t-0";
       case 3:
-        return 'border-t-0 border-r-0'; // Hide top and right border
+        return "border-t-0 border-r-0";
       case 4:
-        return 'border-l-0 border-b-0'; // Hide left and bottom border
+        return "border-l-0 border-b-0";
       case 5:
-        return 'border-b-0'; // Hide bottom border
+        return "border-b-0";
       case 6:
-        return 'border-b-0'; // Hide bottom border
+        return "border-b-0";
       case 7:
-        return 'border-b-0 border-r-0'; // Hide bottom and right border
+        return "border-b-0 border-r-0";
       default:
-        return ''; // Default no border change
+        return "";
     }
   };
 
   useEffect(() => {
-    // Initialize AOS
     AOS.init({
-      duration: 1000, // Set animation duration
-      once: false, // Ensure animations are triggered every time the element is in view
+      duration: 1000,
+      once: false,
     });
 
-    // Listen for scroll events and refresh AOS to re-trigger animations when scrolling
     const handleScroll = () => {
-      AOS.refresh(); // Re-initialize AOS when scrolling back
+      AOS.refresh();
     };
 
     window.addEventListener("scroll", handleScroll);
 
-    // Cleanup event listener on component unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -77,9 +74,11 @@ const ClientLogos = () => {
           {logos.map((logo, index) => (
             <div
               key={index}
-              className={`bg-white border p-8 flex items-center justify-center ${getBorderClass(index)} transition-all transform hover:scale-105 hover:shadow-lg hover:border-blue-500 duration-300 ease-in-out`}
-              data-aos="fade-up" // Add AOS animation when in view
-              data-aos-delay={`${index * 100}`} // Delay animation based on index
+              className={`bg-white border p-8 flex items-center justify-center ${getBorderClass(
+                index
+              )} transition-all transform hover:scale-105 hover:shadow-lg hover:border-blue-500 duration-300 ease-in-out`}
+              data-aos="fade-up"
+              data-aos-delay={`${index * 100}`}
             >
               <img
                 src={logo.src}
@@ -89,9 +88,9 @@ const ClientLogos = () => {
             </div>
           ))}
         </div>
-        
+
         {/* More View Section */}
-        <div className='mt-2 flex gap-2 items-center'>
+        <div className="mt-2 flex gap-2 items-center">
           <MoveRight /> <span>more view</span>
         </div>
       </div>

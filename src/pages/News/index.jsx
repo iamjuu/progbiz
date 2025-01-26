@@ -1,33 +1,33 @@
-import React, { useEffect } from 'react';
-import { ArrowRight } from 'lucide-react';
-import { About1, About2, About3, About4, About5 } from '../../Assets';
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // Import the AOS CSS
+import React, { useEffect } from "react";
+import { ArrowRight } from "lucide-react";
+import { About1, About2, About3, About4, About5 } from "../../Assets";
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import the AOS CSS
 
 const blogPosts = [
   {
     id: 1,
-    category: 'BUSINESS',
-    date: '23.06.2024',
-    title: 'Lorem Ipsum Is Simply Dummy Text Of The Printing And Type..',
+    category: "BUSINESS",
+    date: "23.06.2024",
+    title: "Lorem Ipsum Is Simply Dummy Text Of The Printing And Type..",
     image: About1,
-    tag: 'LOREM',
+    tag: "LOREM",
   },
   {
     id: 2,
-    category: 'BUSINESS',
-    date: '23.06.2024',
-    title: 'Lorem Ipsum Is Simply Dummy Text Of The Printing And Type..',
+    category: "BUSINESS",
+    date: "23.06.2024",
+    title: "Lorem Ipsum Is Simply Dummy Text Of The Printing And Type..",
     image: About2,
-    tag: 'LOREM',
+    tag: "LOREM",
   },
   {
     id: 3,
-    category: 'BUSINESS',
-    date: '23.06.2024',
-    title: 'Lorem Ipsum Is Simply Dummy Text Of The Printing And Type..',
+    category: "BUSINESS",
+    date: "23.06.2024",
+    title: "Lorem Ipsum Is Simply Dummy Text Of The Printing And Type..",
     image: About3,
-    tag: 'LOREM',
+    tag: "LOREM",
   },
 ];
 
@@ -68,27 +68,26 @@ const BlogCard = ({ post, index }) => (
 
 const NewsBlogSection = () => {
   useEffect(() => {
-    // Initialize AOS
     AOS.init({ duration: 1000, once: false });
-  
-    // Reset AOS animations on scroll
+
     const handleScroll = () => {
-      AOS.refresh(); // This will re-trigger AOS animations when user scrolls
+      AOS.refresh();
     };
-  
-    window.addEventListener('scroll', handleScroll);
-  
-    // Clean up event listener and destroy AOS on component unmount
+
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      AOS.destroy(); // Optionally destroy AOS when the component is unmounted
+      window.removeEventListener("scroll", handleScroll);
+      AOS.destroy();
     };
   }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-16">
       <div className="mb-12">
-        <span className="text-[#479ACE] text-[20px]">OUR LATEST NEWS & BLOG</span>
+        <span className="text-[#479ACE] text-[20px]">
+          OUR LATEST NEWS & BLOG
+        </span>
         <h2 className="text-[60px] text-[#0B1826]">
           Our Best Solutions
           <br />

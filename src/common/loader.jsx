@@ -7,7 +7,7 @@ const LoadingSpinner = () => {
   const carVideoRef = useRef(null);
 
   useEffect(() => {
-    // Initialize both videos
+ 
     const videos = [wrenchVideoRef.current, carVideoRef.current];
     videos.forEach(video => {
       if (video) {
@@ -22,7 +22,7 @@ const LoadingSpinner = () => {
   return (
     <div className="h-screen bg-white">
       <div className="absolute   inset-0 flex items-center justify-center gap-5">
-        {/* Wrench animation */}
+     
         <div className="relative">
           <video
             ref={wrenchVideoRef}
@@ -37,7 +37,7 @@ const LoadingSpinner = () => {
           </video>
         </div>
 
-        {/* Car repair animation */}
+   
         <div className="relative">
           <video
             ref={carVideoRef}
@@ -53,8 +53,7 @@ const LoadingSpinner = () => {
           </video>
         </div>
       </div>
-      
-      {/* Optional loading text */}
+
       <div className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 text-center">
         <p className="text-xxl font-semibold text-gray-700 animate-pulse">
           Loading..

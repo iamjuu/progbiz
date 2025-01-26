@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    AOS.init({ duration: 1000 }); // Initialize AOS with duration for animations
+    AOS.init({ duration: 1000 }); 
   }, []);
 
   const toggleMenu = () => {
@@ -20,7 +20,7 @@ const Navbar = () => {
     <nav>
       <div
         className="container mx-auto px-6 py-4 flex items-center justify-between"
-        data-aos="fade-down" // AOS animation on navbar
+        data-aos="fade-down" 
       >
         {/* Logo Section */}
         <div className="flex items-center">

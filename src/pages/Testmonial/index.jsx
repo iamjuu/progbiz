@@ -34,12 +34,19 @@ const TestimonialsAndServices = () => {
     },
   ];
 
- useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: true, // Animation will trigger only once
-    });
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: false });
+
+    const handleScroll = () => {
+      AOS.refresh();
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      AOS.destroy();
+    };
   }, []);
 
   return (
@@ -55,7 +62,11 @@ const TestimonialsAndServices = () => {
               <h2 className="text-[60px] font-bold mb-4" data-aos="fade-up">
                 Client Stories
               </h2>
-              <p className="text-gray-600" data-aos="fade-up" data-aos-delay="100">
+              <p
+                className="text-gray-600"
+                data-aos="fade-up"
+                data-aos-delay="100"
+              >
                 Lorem ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem ipsum has been the industry
               </p>
@@ -83,7 +94,9 @@ const TestimonialsAndServices = () => {
               data-aos="fade-up"
               data-aos-delay={testimonial.id * 100}
             >
-              <p className="text-[#716154] text-[18px] mb-6">{testimonial.text}</p>
+              <p className="text-[#716154] text-[18px] mb-6">
+                {testimonial.text}
+              </p>
               <div className="flex items-center">
                 <img
                   src={testimonial.image}
@@ -97,10 +110,15 @@ const TestimonialsAndServices = () => {
               </div>
               <div className="flex gap-2 mt-4">
                 <div>
-                  <p className="text-[16px] text-[#716154]">Health Services Group</p>
+                  <p className="text-[16px] text-[#716154]">
+                    Health Services Group
+                  </p>
                 </div>
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  <Star
+                    key={i}
+                    className="w-5 h-5 text-yellow-400 fill-current"
+                  />
                 ))}
               </div>
             </div>

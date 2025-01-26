@@ -71,24 +71,21 @@ const Timeline = () => {
     return () => clearInterval(interval);
   }, [isHovered]);
 
-  const slideWidth = 438; // Width of each slide in pixels
-  const gapWidth = 20; // Gap between slides in pixels
+  const slideWidth = 438; 
+  const gapWidth = 20; 
 
   useEffect(() => {
-    // Initialize AOS
     AOS.init({ duration: 1000, once: false });
-  
-    // Reset AOS animations on scroll
+
     const handleScroll = () => {
-      AOS.refresh(); // This will re-trigger AOS animations when user scrolls
+      AOS.refresh(); 
     };
   
     window.addEventListener('scroll', handleScroll);
-  
-    // Clean up event listener and destroy AOS on component unmount
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      AOS.destroy(); // Optionally destroy AOS when the component is unmounted
+      AOS.destroy(); /
     };
   }, []);
 

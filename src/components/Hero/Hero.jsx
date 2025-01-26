@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 
 const Hero = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: false }); // Initialize AOS for re-triggering animations
+    AOS.init({ duration: 1000, once: false }); 
   }, []);
 
   return (

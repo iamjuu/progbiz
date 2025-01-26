@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { Arrowbtn, About1, About2, About3 } from '../../Assets';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useEffect } from "react";
+import { Arrowbtn, About1, About2, About3 } from "../../Assets";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const About = [
   { id: 1, img: About1 },
@@ -15,29 +15,31 @@ const AboutPage = () => {
   useEffect(() => {
     // Initialize AOS
     AOS.init({ duration: 1000, once: false });
-  
-    // Reset AOS animations on scroll
+
     const handleScroll = () => {
-      AOS.refresh(); // This will re-trigger AOS animations when user scrolls
+      AOS.refresh();
     };
-  
-    window.addEventListener('scroll', handleScroll);
-  
-    // Clean up event listener and destroy AOS on component unmount
+
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      AOS.destroy(); // Optionally destroy AOS when the component is unmounted
+      window.removeEventListener("scroll", handleScroll);
+      AOS.destroy();
     };
   }, []);
   return (
     <div className="min-h-screen mt-24">
       <div className="px-8 max-w-7xl mx-auto">
         <div className="mb-4">
-          <p className="text-blue-600 text-sm uppercase tracking-wide">ABOUT US</p>
+          <p className="text-blue-600 text-sm uppercase tracking-wide">
+            ABOUT US
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div data-aos="fade-up"> {/* Fade up animation */}
+          <div data-aos="fade-up">
+            {" "}
+            {/* Fade up animation */}
             <h1 className="text-4xl font-bold text-gray-900 mb-4">
               Cool
               <br />
@@ -47,9 +49,9 @@ const AboutPage = () => {
 
           <div className="relative" data-aos="fade-up">
             <p className="text-gray-600 text-[18px] leading-relaxed mb-8">
-              Founded in the Emirate of Abu Dhabi in 2012, Cool Technologies have emerged to
-              be one of the leading suppliers of industrial cooling equipment in the UAE for
-              the past 10 years.
+              Founded in the Emirate of Abu Dhabi in 2012, Cool Technologies
+              have emerged to be one of the leading suppliers of industrial
+              cooling equipment in the UAE for the past 10 years.
             </p>
           </div>
         </div>
@@ -70,14 +72,14 @@ const AboutPage = () => {
         <div
           className="flex items-center gap-4 animate-scroll hover:pause-scroll"
           style={{
-            animationDuration: '20s',
+            animationDuration: "20s",
           }}
         >
           {About.map((item) => (
             <div
               key={item.id}
               className="min-w-[300px] flex-shrink-0 p-4 rounded-lg shadow-lg"
-              data-aos="flip-left" 
+              data-aos="flip-left"
             >
               <img
                 src={item.img}

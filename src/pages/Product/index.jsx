@@ -1,6 +1,6 @@
-import React,{useEffect} from 'react';
-import Imgbtn from '../../components/arrowBtn';
-import { Cata1, Cata2, Cata3, Cata4, Cata5, Cata6 } from '../../Assets';
+import React, { useEffect } from "react";
+import Imgbtn from "../../components/arrowBtn";
+import { Cata1, Cata2, Cata3, Cata4, Cata5, Cata6 } from "../../Assets";
 import { MoveUpRight } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -8,57 +8,62 @@ import "aos/dist/aos.css";
 const ProductCategories = () => {
   const categories = [
     {
-      btnName: 'Air Conditioner',
+      btnName: "Air Conditioner",
       imageSrc: Cata1,
     },
     {
-      btnName: 'Air Cooler',
+      btnName: "Air Cooler",
       imageSrc: Cata2,
     },
     {
-      btnName: 'Chillers',
+      btnName: "Chillers",
       imageSrc: Cata3,
     },
     {
-      btnName: 'Ice Makers',
+      btnName: "Ice Makers",
       imageSrc: Cata4,
     },
     {
-      btnName: 'Appliances',
+      btnName: "Appliances",
       imageSrc: Cata5,
     },
     {
-      btnName: 'Air Conditioner',
+      btnName: "Air Conditioner",
       imageSrc: Cata1,
     },
   ];
 
   useEffect(() => {
-    // Initialize AOS
     AOS.init({ duration: 1000, once: false });
-  
-    // Reset AOS animations on scroll
+
     const handleScroll = () => {
-      AOS.refresh(); // This will re-trigger AOS animations when user scrolls
+      AOS.refresh();
     };
-  
-    window.addEventListener('scroll', handleScroll);
-  
-    // Clean up event listener and destroy AOS on component unmount
+
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      AOS.destroy(); // Optionally destroy AOS when the component is unmounted
+      window.removeEventListener("scroll", handleScroll);
+      AOS.destroy();
     };
   }, []);
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">
       <div className="text-center mb-10">
-        <h2 className="text-[60px] font-medium text-gray-900" data-aos="fade-up">
+        <h2
+          className="text-[60px] font-medium text-gray-900"
+          data-aos="fade-up"
+        >
           Explore Our Top Categories
         </h2>
-        <p className="text-[18px] text-gray-600" data-aos="fade-up" data-aos-delay="100">
-          Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum is simply
+        <p
+          className="text-[18px] text-gray-600"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Lorem ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem ipsum is simply
         </p>
       </div>
 
@@ -67,15 +72,15 @@ const ProductCategories = () => {
           <div
             key={index}
             className="flex flex-col items-center group transform transition duration-500 hover:scale-105"
-            data-aos={index % 2 === 0 ? "fade-up" : "fade-down"} // Adding different animations for variation
+            data-aos={index % 2 === 0 ? "fade-up" : "fade-down"}
             data-aos-delay={index * 100}
           >
             <img
               src={item.imageSrc}
-              alt={'image'}
+              alt={"image"}
               className="w-[550px] object-cover rounded-lg shadow-lg transition-all duration-300 group-hover:opacity-80"
             />
-            <div className='w-full mt-4'>
+            <div className="w-full mt-4">
               <Imgbtn
                 btnname={item.btnName}
                 icon={<MoveUpRight size={20} />}
