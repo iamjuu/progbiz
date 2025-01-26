@@ -5,6 +5,8 @@ import About from './pages/About'
 import Service from './pages/Service'
 import Achiement from './pages/Achievment'
 import Product from './pages/Product'
+import Testmorial from './pages/Testmonial'
+import Logos from './pages/Logos'
 const App = () => {
   return (
  <>
@@ -17,6 +19,8 @@ const App = () => {
  <Service/>
  <Achiement/>
  <Product/>
+ <Testmorial/>
+ <Logos/>
      
     </div>
  </>

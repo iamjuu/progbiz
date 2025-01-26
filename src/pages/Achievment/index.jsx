@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Timeline = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -34,25 +36,25 @@ const Timeline = () => {
       dealerships: ["SUPER GENERAL", "WESTPOINT"],
     },
     {
-        year: "2016",
-        title: "Introduced Cooltech - Brand Water Cooler and Chillers",
-        description: "Dealership : WHIRLPOOL , FRIGIDAIRE , MABE , BEKON , IGMA , BLUE STAR , GREE",
-        dealerships: [
-          "WHITE ROCK",
-          "FRIGIDAIRE",
-          "MABE",
-          "BENON",
-          "IGMA",
-          "BLUE STAR",
-          "GREE",
-        ],
-      },
-      {
-        year: "2017",
-        title: "Started doing HVAC Projects - Labor Campus, Villas & more",
-        description: "Dealership : WHIRLPOOL , FRIGIDAIRE , MABE , BEKON , IGMA , BLUE STAR , GREE",
-        dealerships: ["SUPER GENERAL", "WESTPOINT"],
-      },
+      year: "2016",
+      title: "Introduced Cooltech - Brand Water Cooler and Chillers",
+      description: "Dealership : WHIRLPOOL , FRIGIDAIRE , MABE , BEKON , IGMA , BLUE STAR , GREE",
+      dealerships: [
+        "WHITE ROCK",
+        "FRIGIDAIRE",
+        "MABE",
+        "BENON",
+        "IGMA",
+        "BLUE STAR",
+        "GREE",
+      ],
+    },
+    {
+      year: "2017",
+      title: "Started doing HVAC Projects - Labor Campus, Villas & more",
+      description: "Dealership : WHIRLPOOL , FRIGIDAIRE , MABE , BEKON , IGMA , BLUE STAR , GREE",
+      dealerships: ["SUPER GENERAL", "WESTPOINT"],
+    },
   ];
 
   const nextSlide = () => {
@@ -72,8 +74,16 @@ const Timeline = () => {
   const slideWidth = 438; // Width of each slide in pixels
   const gapWidth = 20; // Gap between slides in pixels
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: false, // Animation triggers every time the element enters the viewport
+    });
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen p-4 sm:p-6 lg:p-8">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 sm:mb-12">
           <div>
@@ -93,11 +103,11 @@ const Timeline = () => {
         </div>
 
         <div className="relative overflow-hidden">
-          <div 
+          <div
             className="flex gap-5 transition-transform duration-500 ease-in-out"
-            style={{ 
+            style={{
               transform: `translateX(-${currentSlide * (slideWidth + gapWidth)}px)`,
-              gap: '20px'
+              gap: '20px',
             }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
@@ -105,6 +115,7 @@ const Timeline = () => {
             {timelineData.map((item, index) => (
               <div
                 key={index}
+                data-aos={index % 2 === 0 ? "fade-up" : "fade-down"} // Apply fade-up for even, fade-down for odd
                 className={`flex-shrink-0 w-[438px] flex flex-wrap flex-col justify-between transition-all duration-500 ${
                   index === currentSlide ? "opacity-100" : "opacity-50"
                 }`}
