@@ -30,9 +30,11 @@ import Logo6 from "./client/Group.svg";
 import Logo7 from "./client/Akai_brand_logo 1.svg";
 import Form from "./images/form.png"
 import formIcon from './icon/Vector.png'
+import Loader from './loader/cleaning-air-conditioner-animated-icon-download-in-lottie-json-gif-static-svg-file-formats--maintenance-service-conditioning-pack-services-icons-6407993.mp4'
 export {
 
   formIcon,
+  Loader,
   Form,
   Logo1,
   Logo2,

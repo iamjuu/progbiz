@@ -4,8 +4,13 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  extend: {},
+  extend: {
+    
+  },
   theme: {
+    fontFamily:{
+      DMSans:['DM Sans']
+    },
     extend: {
       animation: {
         fadeIn: 'fadeIn 0.5s ease-in-out',
