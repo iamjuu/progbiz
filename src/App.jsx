@@ -26,7 +26,7 @@ const App = () => {
       {loading ? (
         <Loader /> 
       ) : (
-        <div className="min-h-screen  overflow-x-hidden">
+        <div className="min-h-screen  overflow-y-hidden">
         <Navbar />
         <Hero />
         <About />
