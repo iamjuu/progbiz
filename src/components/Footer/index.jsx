@@ -7,16 +7,17 @@ const Footer = () => {
   useEffect(() => {
     // Initialize AOS
     AOS.init({ duration: 1000, once: false });
-  
+
     const handleScroll = () => {
-      AOS.refresh(); /
+      AOS.refresh(); // Refresh AOS to ensure animations are triggered on scroll
     };
-  
+
     window.addEventListener('scroll', handleScroll);
 
+    // Cleanup function to remove event listener and destroy AOS when the component is unmounted
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      AOS.destroy(); 
+      AOS.destroy(); // Proper cleanup to prevent memory leaks
     };
   }, []);
 
@@ -53,7 +54,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div data-aos="fade-up">
-            <h3 className="font-medium  text-[#E4E4E4] mb-4">Quick Links</h3>
+            <h3 className="font-medium text-[#E4E4E4] mb-4">Quick Links</h3>
             <ul className="space-y-2 text-gray-400">
               <li><a href="#" className="hover:text-white">Home</a></li>
               <li><a href="#" className="hover:text-white">About Us</a></li>
@@ -83,8 +84,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-700" data-aos="fade-up">
-          <div className="flex gap-6 mb-4 md:mb-0">
+        <div className="flex  flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-700" data-aos="fade-up">
+          <div className="flex p-2 gap-6 mb-4 md:mb-0">
             <a href="#" className="hover:text-gray-300">INSTAGRAM</a>
             <a href="#" className="hover:text-gray-300">FACEBOOK</a>
             <a href="#" className="hover:text-gray-300">TWITTER</a>
