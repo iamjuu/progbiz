@@ -13,27 +13,27 @@ import Footer from './components/Footer';
 import Loader from './common/loader';
 
 const App = () => {
-  const [loading, setLoading] = useState(true);  // Loader state
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
-    // Simulate a loader for 1 second
-    const timer = setTimeout(() => {
-      setLoading(false); // Hide loader after 1 second
-    }, 1500);
 
-    // Cleanup the timer
+    const timer = setTimeout(() => {
+      setLoading(false); 
+    }, 1700);
+
+
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
       {loading ? (
-        <Loader /> // Display loader while loading is true
+        <Loader /> 
       ) : (
         <div className="min-h-screen bg-white">
           <Navbar />
           <Hero />
-          <About />
+          <About  />
           <Service />
           <Achiement />
           <Product />
