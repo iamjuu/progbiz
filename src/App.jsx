@@ -30,7 +30,7 @@ const App = () => {
       {loading ? (
         <Loader /> 
       ) : (
-        <div className="min-h-screen bg-gray-900 overflow-x-hidden">
+        <div className="min-h-screen  overflow-x-hidden">
         <Navbar />
         <Hero />
         <About />
