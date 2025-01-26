@@ -30,12 +30,8 @@ import Logo6 from "./client/Group.svg";
 import Logo7 from "./client/Akai_brand_logo 1.svg";
 import Form from "./images/form.png"
 import formIcon from './icon/Vector.png'
-// *****loader*********
-import Loader from '../Assets/video/master-mechanic-with-wrench-animation-download-in-lottie-json-gif-static-svg-file-formats--spanner-toolbox-carpenter-pack-man-animations-5800358.mp4';
-import Loader1 from '../assets/video/air-conditioner-animated-icon-download-in-lottie-json-gif-static-svg-file-formats--ac-tech-pack-science-technology-icons-9283948.mp4';
 export {
-  Loader1,
-  Loader,
+
   formIcon,
   Form,
   Logo1,
