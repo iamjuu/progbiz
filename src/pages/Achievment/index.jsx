@@ -85,7 +85,7 @@ const Timeline = () => {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      AOS.destroy(); /
+      AOS.destroy();
     };
   }, []);
 
