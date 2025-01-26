@@ -30,19 +30,20 @@ const App = () => {
       {loading ? (
         <Loader /> 
       ) : (
-        <div className="min-h-screen bg-white">
-          <Navbar />
-          <Hero />
-          <About  />
-          <Service />
-          <Achiement />
-          <Product />
-          <Testmorial />
-          <Logos />
-          <Form />
-          <News />
-          <Footer />
-        </div>
+        <div className="min-h-screen bg-gray-900 overflow-x-hidden">
+        <Navbar />
+        <Hero />
+        <About />
+        <Service />
+        <Achiement />
+        <Product />
+        <Testmorial />
+        <Logos />
+        <Form />
+        <News />
+        <Footer />
+      </div>
+      
       )}
     </>
   );
