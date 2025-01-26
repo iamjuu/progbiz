@@ -1,5 +1,6 @@
 // *******logo***********
 import Logo from "./icon/COOLTECH-NEW-LOGO-W-OLD (1) 4.svg";
+import FooterLogo from './icon/COOLTECH-NEW-LOGO-W-OLD (1) 4 (1).svg'
 import Banner from "./images/realistic-split-ac-mockup-with-cold-warm-air-flow-control-home-office (1) 2.svg";
 import Arrow from "./icon/Fvmzw1MNcf8Y4XDTxjpNpmao.svg.svg";
 import Arrowbtn from "./button/Link (1).svg";
@@ -27,7 +28,14 @@ import Logo4 from "./client/Layer_1_Image.svg";
 import Logo5 from "./client/image 10.svg";
 import Logo6 from "./client/Group.svg";
 import Logo7 from "./client/Akai_brand_logo 1.svg";
+import Form from "./images/form.png"
+import formIcon from './icon/Vector.png'
+// *****loader*********
+import Loadergif from './video/air-conditioner-animated-icon-download-in-lottie-json-gif-static-svg-file-formats--ac-tech-pack-science-technology-icons-9283948.mp4'
 export {
+  Loadergif,
+  formIcon,
+  Form,
   Logo1,
   Logo2,
   Logo3,
@@ -53,4 +61,7 @@ export {
   Cata4,
   Cata5,
   Cata6,
+  FooterLogo
 };
+
+

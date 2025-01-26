@@ -13,9 +13,22 @@ const About = [
 
 const AboutPage = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: false }); // Initialize AOS and enable re-triggering on scroll
+    // Initialize AOS
+    AOS.init({ duration: 1000, once: false });
+  
+    // Reset AOS animations on scroll
+    const handleScroll = () => {
+      AOS.refresh(); // This will re-trigger AOS animations when user scrolls
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+  
+    // Clean up event listener and destroy AOS on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      AOS.destroy(); // Optionally destroy AOS when the component is unmounted
+    };
   }, []);
-
   return (
     <div className="min-h-screen mt-24">
       <div className="px-8 max-w-7xl mx-auto">

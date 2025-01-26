@@ -80,7 +80,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-red-100" data-aos="fade-up">
+        <div className="md:hidden " data-aos="fade-up">
           <div className="flex flex-col space-y-2 px-6 py-4">
             <Link to="/" className="text-black hover:text-blue-500">
               HOME

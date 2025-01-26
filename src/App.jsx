@@ -1,30 +1,51 @@
-import React from 'react'
-import Navbar from './components/Navbar/Navbar'
-import Hero from './components/Hero/Hero'
-import About from './pages/About'
-import Service from './pages/Service'
-import Achiement from './pages/Achievment'
-import Product from './pages/Product'
-import Testmorial from './pages/Testmonial'
-import Logos from './pages/Logos'
-const App = () => {
-  return (
- <>
-  <div className="min-h-screen bg-white">
- 
-   
-<Navbar/>
- <Hero/>
- <About/>
- <Service/>
- <Achiement/>
- <Product/>
- <Testmorial/>
- <Logos/>
-     
-    </div>
- </>
-  )
-}
+import React, { useState, useEffect } from 'react';
+import Navbar from './components/Navbar/Navbar';
+import Hero from './components/Hero/Hero';
+import About from './pages/About';
+import Service from './pages/Service';
+import Achiement from './pages/Achievment';
+import Product from './pages/Product';
+import Testmorial from './pages/Testmonial';
+import Logos from './pages/Logos';
+import Form from './pages/form';
+import News from './pages/News';
+import Footer from './components/Footer';
+import Loader from './common/loader';
 
-export default App
+const App = () => {
+  const [loading, setLoading] = useState(true);  // Loader state
+
+  useEffect(() => {
+    // Simulate a loader for 1 second
+    const timer = setTimeout(() => {
+      setLoading(false); // Hide loader after 1 second
+    }, 1500);
+
+    // Cleanup the timer
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <>
+      {loading ? (
+        <Loader /> // Display loader while loading is true
+      ) : (
+        <div className="min-h-screen bg-white">
+          <Navbar />
+          <Hero />
+          <About />
+          <Service />
+          <Achiement />
+          <Product />
+          <Testmorial />
+          <Logos />
+          <Form />
+          <News />
+          <Footer />
+        </div>
+      )}
+    </>
+  );
+};
+
+export default App;

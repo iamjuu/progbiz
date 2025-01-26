@@ -7,11 +7,21 @@ import "aos/dist/aos.css";
 
 const Services = () => {
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: false, // Animation triggers every time the element enters the viewport
-    });
+    // Initialize AOS
+    AOS.init({ duration: 1000, once: false });
+  
+    // Reset AOS animations on scroll
+    const handleScroll = () => {
+      AOS.refresh(); // This will re-trigger AOS animations when user scrolls
+    };
+  
+    window.addEventListener('scroll', handleScroll);
+  
+    // Clean up event listener and destroy AOS on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      AOS.destroy(); // Optionally destroy AOS when the component is unmounted
+    };
   }, []);
 
   const services = [
