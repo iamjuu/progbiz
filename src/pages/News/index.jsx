@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { ArrowRight } from "lucide-react";
-import { About1, About2, About3, About4, About5 } from "../../Assets";
+import { About1, About2, About3 } from "../../Assets";
 import AOS from "aos";
 import "aos/dist/aos.css"; // Import the AOS CSS
 
