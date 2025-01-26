@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import Loader from '../Assets/video/master-mechanic-with-wrench-animation-download-in-lottie-json-gif-static-svg-file-formats--spanner-toolbox-carpenter-pack-man-animations-5800358.mp4';
-import Loader1 from '../assets/video/air-conditioner-animated-icon-download-in-lottie-json-gif-static-svg-file-formats--ac-tech-pack-science-technology-icons-9283948.mp4';
+import {Loader,Loader1} from '../Assets'
 
 const LoadingSpinner = () => {
   const wrenchVideoRef = useRef(null);
