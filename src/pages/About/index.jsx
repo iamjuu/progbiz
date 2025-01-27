@@ -13,8 +13,7 @@ const About = [
 
 const AboutPage = () => {
   useEffect(() => {
-    // Initialize AOS
-    AOS.init({ duration: 1000, once: false });
+    AOS.init({ duration: 3000, once: false });
 
     const handleScroll = () => {
       AOS.refresh();
@@ -31,7 +30,7 @@ const AboutPage = () => {
     <div className="min-h-screen mt-24">
       <div className="px-8 max-w-7xl mx-auto">
         <div className="mb-4">
-          <p className="text-blue-600 text-sm uppercase tracking-wide">
+          <p className="text-blue-300  text-[28px] uppercase tracking-wide">
             ABOUT US
           </p>
         </div>

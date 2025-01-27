@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react';
-import { FooterLogo } from '../../Assets';
-import AOS from 'aos'; // Ensure you import AOS
-import 'aos/dist/aos.css'; // Ensure you import AOS styles
+import React, { useEffect } from "react";
+import { FooterLogo } from "../../Assets";
+import AOS from "aos"; // Ensure you import AOS
+import "aos/dist/aos.css"; // Ensure you import AOS styles
+import Btn from "../arrowBtn"
+import {Arrow,Arrowbtn} from "../../Assets"
+import { MoveUpRight } from "lucide-react";
 
 const Footer = () => {
   useEffect(() => {
@@ -12,86 +15,88 @@ const Footer = () => {
       AOS.refresh(); // Refresh AOS to ensure animations are triggered on scroll
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     // Cleanup function to remove event listener and destroy AOS when the component is unmounted
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
       AOS.destroy(); // Proper cleanup to prevent memory leaks
     };
   }, []);
 
   return (
-    <footer className="bg-[#1C2632] text-white py-16">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Top Section */}
-        <div className="mb-16" data-aos="fade-down">
-          <h2 className="text-[60px] font-semibold mb-8">
-            Ready to Experience Superior<br />Cooling?
-          </h2>
-          <div className="flex items-center gap-8">
-            <button className="border border-white rounded-full px-6 py-2 flex items-center gap-2 hover:bg-white hover:text-[#1C2632] transition-colors">
-              LET'S TALK
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </button>
-            <a href="mailto:info@cooltech.com" className="hover:underline">
-              info@cooltech.com
-            </a>
-          </div>
+    <footer className="p-10 bg-[#15212D] text-white flex flex-col">
+      {/* Top Section */}
+      <div className="mb-8 text-center lg:text-left">
+        <h1 className="text-[40px] lg:text-[60px] leading-tight">
+          Ready to Experience Superior <br className="hidden lg:block" /> Cooling?
+        </h1>
+        <div className="mt-4 flex justify-center lg:justify-start items-center gap-3">
+          {/* <button className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
+            Let’s Talk
+          </button> */}
+          <Btn icon={<MoveUpRight size={20}  />}  btnname={`LET'S TALK` } className={' border border-white py-2 px-2 rounded-full flex gap-2 justify-center items-center'}/>
+          <p className="text-lg">info@cooltech.com</p>
+        </div>
+      </div>
+
+      {/* Middle Section */}
+      <div className="w-full flex flex-wrap lg:flex-nowrap gap-6">
+        {/* Left Column */}
+        <div className="flex flex-col justify-center   gap-3 w-full lg:w-1/2 text-center lg:text-left">
+          <img className="w-[120px] mx-auto lg:mx-0" src={FooterLogo} alt="Footer Logo" />
+          <p className="text-sm lg:text-base">
+            Lorem Ipsum is simply dummy text of the printing <br /> and typesetting
+            industry. Lorem Ipsum has been the industry
+          </p>
         </div>
 
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Logo and Description */}
-          <div className="md:col-span-1" data-aos="fade-up">
-            <img src={FooterLogo} alt="Cool Technologies" className="mb-4" />
-            <p className="text-gray-400 text-[18px]">
-              Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the industry
-            </p>
-          </div>
-
+        {/* Right Column */}
+        <div className="flex flex-wrap justify-between w-full lg:w-1/2 text-center lg:text-left gap-6">
           {/* Quick Links */}
-          <div data-aos="fade-up">
-            <h3 className="font-medium text-[#E4E4E4] mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white">Home</a></li>
-              <li><a href="#" className="hover:text-white">About Us</a></li>
-              <li><a href="#" className="hover:text-white">Services</a></li>
+          <div>
+            <ul className="flex flex-col gap-2">
+              <li className="text-lg font-semibold">Quick Links</li>
+              <li className="hover:text-blue-400 cursor-pointer">Home</li>
+              <li className="hover:text-blue-400 cursor-pointer">About Us</li>
+              <li className="hover:text-blue-400 cursor-pointer">Services</li>
             </ul>
           </div>
-
           {/* Explore */}
-          <div data-aos="fade-up">
-            <h3 className="font-medium mb-4">Explore</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white">Products</a></li>
-              <li><a href="#" className="hover:text-white">Gallery</a></li>
-              <li><a href="#" className="hover:text-white">Blogs</a></li>
+          <div>
+            <ul className="flex flex-col gap-2">
+              <li className="text-lg font-semibold">Explore</li>
+              <li className="hover:text-blue-400 cursor-pointer">Products</li>
+              <li className="hover:text-blue-400 cursor-pointer">Gallery</li>
+              <li className="hover:text-blue-400 cursor-pointer">Blog</li>
             </ul>
           </div>
-
           {/* Info */}
-          <div data-aos="fade-up">
-            <h3 className="font-medium mb-4">Info</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="#" className="hover:text-white">Contact Us</a></li>
-              <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-white">Terms of Service</a></li>
+          <div>
+            <ul className="flex flex-col gap-2">
+              <li className="text-lg font-semibold">Info</li>
+              <li className="hover:text-blue-400 cursor-pointer">Contact Us</li>
+              <li className="hover:text-blue-400 cursor-pointer">Privacy Policy</li>
+              <li className="hover:text-blue-400 cursor-pointer">Terms of Service</li>
             </ul>
           </div>
         </div>
+      </div>
 
-        {/* Bottom Section */}
-        <div className="flex  flex-col md:flex-row justify-between items-center pt-8 border-t border-gray-700" data-aos="fade-up">
-          <div className="flex p-2 gap-6 mb-4 md:mb-0">
-            <a href="#" className="hover:text-gray-300">INSTAGRAM</a>
-            <a href="#" className="hover:text-gray-300">FACEBOOK</a>
-            <a href="#" className="hover:text-gray-300">TWITTER</a>
-            <a href="#" className="hover:text-gray-300">PINTEREST</a>
-          </div>
-          <p className="text-sm text-gray-400">
+      {/* Bottom Section */}
+      <div className="mt-8 flex flex-wrap justify-between items-center gap-4">
+        {/* Social Links */}
+        <div className="w-full lg:w-auto text-center">
+          <ul className="flex justify-center lg:justify-start gap-4 text-sm">
+            <li className="hover:text-blue-400 cursor-pointer">Instagram</li>
+            <li className="hover:text-blue-400 cursor-pointer">Facebook</li>
+            <li className="hover:text-blue-400 cursor-pointer">Twitter</li>
+            <li className="hover:text-blue-400 cursor-pointer">Pinterest</li>
+          </ul>
+        </div>
+        {/* Copyright */}
+        <div className="w-full lg:w-auto text-center lg:text-right">
+          <p className="text-xs lg:text-sm">
             Copyright © 2024 Cooltech. All Rights Reserved
           </p>
         </div>

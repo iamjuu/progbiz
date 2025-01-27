@@ -17,7 +17,7 @@ const App = () => {
 
     const timer = setTimeout(() => {
       setLoading(false); 
-    }, 1700);
+    }, 100);
     return () => clearTimeout(timer);
   }, []);
 
@@ -26,7 +26,7 @@ const App = () => {
       {loading ? (
         <Loader /> 
       ) : (
-        <div className="min-h-screen font-DMSans  overflow-y-hidden">
+        <div className=" font-DMSans  ">
         <Navbar />
         <Hero />
         <About />
